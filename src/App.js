@@ -1,21 +1,30 @@
+import { useState } from 'react';
 import './App.scss';
 import Container from 'react-bootstrap/Container';
-import NavbarComponent from './NavBar';
-import PriceHeader from './PriceHeader';
-import FooterComponent from './Footer';
+import PriceHeader from './Header/PriceHeader';
+import FooterLowPrice from './Footer/FooterLowPrice';
+import FooterHighPrice from './Footer/FooterHighPrice';
+import NavBar from './Header/NavBar';
+// import ErrorModal from './ErrorModal';
+import Body from './Body/Body';
+// import Loading from './Loading';
 
 function App() {
-  return (
+  const [activePrice, setActivePrice] = useState('low');
+  
+  // if(true) return <Loading />;
+// if(true) return <ErrorModal handleClose={() => {}} errorMessage="Oshibka dostupa" />;
+  
+return (
     <>
     <div className="container-wraper pb-2">
     <Container>
-      <NavbarComponent />
-      <PriceHeader />
-      <div className="chart"></div>
+      <NavBar />
+      <PriceHeader activePrice={activePrice} setActivePrice={setActivePrice} />
+     <Body/>
       </Container>
       </div>
-      <FooterComponent />
-      
+      {activePrice === 'low' ? <FooterLowPrice /> : <FooterHighPrice />}
       </>
   );
 }

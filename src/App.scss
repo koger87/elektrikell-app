@@ -1,9 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: $blue-100;
+    background-color: $gray-100;
 }
-
+// уelektrikell color -rgb(245, 245, 252);
 .container-wraper {
     background-color: white;
 }
@@ -16,3 +16,4 @@ body {
 .navbar-brand {
     color: $primary;
 }
+

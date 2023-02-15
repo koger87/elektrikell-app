@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './App.scss';
 import Container from 'react-bootstrap/Container';
+// import PriceElement from './Header/PriceElement';
 import PriceHeader from './Header/PriceHeader';
+  // import Badge from 'react-bootstrap/Badge';
+  // import PriceLiteralElement from './Header/PriceLiteralElement';
 import FooterLowPrice from './Footer/FooterLowPrice';
 import FooterHighPrice from './Footer/FooterHighPrice';
 import NavBar from './Header/NavBar';

@@ -6,7 +6,6 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 function Durations() {
    
   const [activeTime, setActiveTime] = useState(1);
-    
   const buttons = [1, 2, 3, 4, 6, 8];
     
   return (

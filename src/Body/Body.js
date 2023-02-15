@@ -37,4 +37,4 @@ function Body() {
 </ResponsiveContainer>
 );
 }
-export default Body;
+export default Body

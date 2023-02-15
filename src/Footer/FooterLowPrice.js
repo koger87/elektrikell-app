@@ -8,7 +8,7 @@ return (
 <Container className="text-center">
 <div>Tahan tarbida</div>
 <div>
-    <Durations />
+<Durations />
 </div>
 <div>Parim aeg</div>
 <div>

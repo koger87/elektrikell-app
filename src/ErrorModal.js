@@ -16,4 +16,5 @@ return (
 </Modal>
 )
 }
-export default ErrorModal;
+
+export default ErrorModal

@@ -5,7 +5,6 @@ import SelectPriceType from './SelectPriceType';
 
 function PriceHeader(props) {
   return (
-    
     <Container>
       <Row>
       <Col>Elektri hind hetkel on</Col>
@@ -21,4 +20,4 @@ function PriceHeader(props) {
   );
 }
 
-export default PriceHeader
+export default PriceHeader;

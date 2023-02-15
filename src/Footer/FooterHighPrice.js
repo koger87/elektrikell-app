@@ -9,4 +9,3 @@ return (
 }
 
 export default FooterHighPrice;
-

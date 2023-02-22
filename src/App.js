@@ -11,21 +11,21 @@ import Body from './Body/Body';
 
 function App() {
   const [activePrice, setActivePrice] = useState('low');
-  
+  const [hourRange, setHourRange] = useState(1)
   // if(true) return <Loading />;
-// if(true) return <ErrorModal handleClose={() => {}} errorMessage="Oshibka dostupa" />;
-  
-return (
+  // if(true) return <ErrorModal handleClose={() => {}} errorMessage="Oshibka dostupa" />;
+
+  return (
     <>
-    <div className="container-wraper pb-2">
-    <Container>
-      <NavBar />
-      <PriceHeader activePrice={activePrice} setActivePrice={setActivePrice} />
-     <Body/>
-      </Container>
+      <div className="container-wraper pb-2">
+        <Container>
+          <NavBar />
+          <PriceHeader activePrice={activePrice} setActivePrice={setActivePrice} />
+          <Body hourRange={hourRange} />
+        </Container>
       </div>
-      {activePrice === 'low' ? <FooterLowPrice /> : <FooterHighPrice />}
-      </>
+      {activePrice === 'low' ? <FooterLowPrice hourRange={hourRange} setHourRange={setHourRange} /> : <FooterHighPrice />}
+    </>
   );
 }
 

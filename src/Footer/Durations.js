@@ -1,11 +1,11 @@
-import { useState } from 'react';
+
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
-function Durations() {
+function Durations({ hourRange, setHourRange }) {
    
-  const [activeTime, setActiveTime] = useState(1);
+  // const [activeTime, setActiveTime] = useState(1);
   const buttons = [1, 2, 3, 4, 6, 8];
     
   return (
@@ -14,8 +14,8 @@ function Durations() {
         {buttons.map(time => (
             <Button 
             key={time} 
-            active={time === activeTime} 
-            onClick={() => setActiveTime(time)}>
+            active={time === hourRange} 
+            onClick={() => setHourRange(time)}>
             {time}h
             </Button>
         ))}

@@ -36,7 +36,7 @@ function App() {
         lowPriceTimestamp={lowPriceTimestamp} 
         />
         : <FooterHighPrice />}
-        {!lowPriceTimestamp && <Loading/>}
+        {lowPriceTimestamp && <Loading/>}
         {/* esli ubratj ! s lowpr..to loading budet vsegda rabotatj na stranice */}
     </>
   );

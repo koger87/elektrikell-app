@@ -8,13 +8,13 @@ function NavBar() {
     <Navbar bg="light" expand="lg" className="mb-2">
       <Container>
         <Navbar.Brand href="#home"><img
-              alt=""
-              src="https://www.elektrikell.ee/static/media/logo.eb02b150.svg"
-              width="150"
-              height="150"
-              className="d-inline-block align-top"
-            />{' '}
-            </Navbar.Brand>
+          alt=""
+          src="https://www.elektrikell.ee/static/media/logo.eb02b150.svg"
+          width="150"
+          height="150"
+          className="d-inline-block align-top"
+        />{' '}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

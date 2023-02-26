@@ -19,7 +19,7 @@ function PriceHeader(props) {
           throw messages[0];
         }
 
-        const kwPrice = +(data[0].price / 10 * 1.2).toFixed(2)
+        const kwPrice = +(data[0].price / 10 * 1.2).toFixed(2);
 
         setCurrentPrice(kwPrice)
       })

@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { ReferenceArea } from "recharts";
+import { rangePricesGenerator } from "../helpers/rangePrices";
 
-function AreaHigh({ rangePrices }) {
+function AreaHigh({data}) {
     const [xHigh, setXHigh] = useState(null);
 
     useEffect(() => {
 
-        if (!rangePrices) return;
+        if (!data) return;
+        const rangePrices = rangePricesGenerator(data)
 
         rangePrices.reverse();
         const half = rangePrices.slice(0, rangePrices.length / 2);
@@ -16,14 +18,15 @@ function AreaHigh({ rangePrices }) {
         });
         let average = sum / half.length;
         setXHigh(half.filter(v => v.sum > average));
-    }, [rangePrices]);
+
+    }, [data]);
 
     return xHigh?.length ? xHigh.map(x =>
         <ReferenceArea key={x.i}
             x1={x.i + 10}
             x2={x.i + 10 + 1}
             stroke="red" fill="red" strokeOpacity={0.3} fillOpacity={0.3} />
-    ) : <></>;
+    ) : <></>; //pustoi element zdesj 4to bi bila otrisovka(ne obi4nii metod)
 }
 
 export default AreaHigh;

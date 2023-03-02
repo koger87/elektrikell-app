@@ -8,20 +8,36 @@ import { useState } from 'react';
 
 function DateForm({ show, setShow, setSearchDate }) {
     const [errorMessage, setErrorMessage] = useState(null)
+
     const handleClose = () => setShow(false);
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const start = event.target.start.value;
         const end = event.target.end.value
+        //const currentDate = moment()
+
+
+
         //moment.isSameOrAfter/Before
+        if(!start || !end) {
+            setErrorMessage('alg kup peab olema maaratud')
+            return;
+        }
+
         if (moment(start).isAfter(moment())) {
             setErrorMessage("Vale algus kuupäev")
         }
         else if (moment(end).isBefore(moment())) {
             setErrorMessage("Vale lõpp kuupäev")
         } else {
+// start = moment(start)
+// end = moment(end)
 
+//if(start.diff(end, 'days') < 1 {
+    // setErrorMessage('alg ja lopp kuupaeva vahe peab rohkem kui 1 paev')
+    // return
+// })
             setSearchDate({
                 start: moment(start).format(),//prowloe - eto start 
                 end: moment(end).format(),

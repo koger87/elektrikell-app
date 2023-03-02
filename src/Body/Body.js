@@ -96,9 +96,13 @@ function Body({ hourRange, activePrice, setLowPriceTimestamp }) {
                 </LineChart>
             </ResponsiveContainer>
 
-            <Button variant="outline-secondary" onClick={() => setShowForm(true)} size="sm">
-                Määra kuupäevad
+           
+            <Button variant="outline-primary" onClick={() => setShowForm(true)} size="sm" className="justify-content-center"
+           
+            >
+               Määra kuupäevad
             </Button>
+    
             <DateForm
                 show={showForm}
                 setShow={setShowForm}

@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import {
-    ResponsiveContainer,
-    LineChart,
     CartesianGrid,
     XAxis,
     YAxis,
@@ -72,34 +70,30 @@ function Body({ hourRange, activePrice, setLowPriceTimestamp }) {
     //         setRangePrices(rangePrices);
     //     }
     // }, [hourRange, data, activePrice]);
-
-    return (
-        <>
-            <ResponsiveContainer width="100%" height={400}>
-                <LineChart
-                    data={data}
-                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
+const chartsChildren = (
+    <>
+    <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="hour" />
                     <YAxis />
                     <Tooltip />
-
                     <Line type="monotone" dataKey="price" stroke="#8884d8" />
                     <ReferenceLine x={data?.findIndex((el) => el.current)} stroke="red" />
+                    </>
+);
+    return (
+        <>
                     {activePrice === "high"
                         ?
-                        AreaHign({ data })
+                       <AreaHign data={data}>
+                        {chartsChildren}
+                       </AreaHign>
                         :
-                        AreaLow({ hourRange, setLowPriceTimestamp, searchDate, data })
+                        <AreaLow {... {hourRange, setLowPriceTimestamp, searchDate, data }}>
+                            {chartsChildren}
+                        </AreaLow>
                     }
-                </LineChart>
-            </ResponsiveContainer>
-
-
-            <Button variant="outline-primary" onClick={() => setShowForm(true)} size="sm"
-
-            >
+            
+            <Button variant="outline-primary" onClick={() => setShowForm(true)} size="sm">
                 Määra kuupäevad
             </Button>
 
@@ -110,8 +104,7 @@ function Body({ hourRange, activePrice, setLowPriceTimestamp }) {
 
             <ErrorModal
                 errorMessage={errorMessage}
-                handleClose={() => setErrorMessage(null)}
-            />
+                handleClose={() => setErrorMessage(null)} />
         </>
     );
 }

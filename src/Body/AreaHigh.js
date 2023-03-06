@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { ReferenceArea } from "recharts";
+import { ReferenceArea, ResponsiveContainer, LineChart } from "recharts";
 import { rangePricesGenerator } from "../helpers/rangePrices";
 
-function AreaHigh({data}) {
+function AreaHigh({ data, children }) {
     const [xHigh, setXHigh] = useState(null);
+    const [pastIndex, setPastIndex] = useState(0)
 
     useEffect(() => {
 
@@ -18,15 +19,31 @@ function AreaHigh({data}) {
         });
         let average = sum / half.length;
         setXHigh(half.filter(v => v.sum > average));
-
+        setPastIndex(data.length - rangePrices.length + 1)
     }, [data]);
 
-    return xHigh?.length ? xHigh.map(x =>
-        <ReferenceArea key={x.i}
-            x1={x.i + 10}
-            x2={x.i + 10 + 1}
-            stroke="red" fill="red" strokeOpacity={0.3} fillOpacity={0.3} />
-    ) : <></>; //pustoi element zdesj 4to bi bila otrisovka(ne obi4nii metod)
+// const currentindex = data?.findindex((el) => el.current)
+    return (
+        <ResponsiveContainer width="100%" height={400}>
+            <LineChart
+                data={data}>
+                {children}
+                {xHigh?.length ? xHigh.map(x =>
+                    <ReferenceArea key={x.i}
+                        x1={x.i + pastIndex}
+                        x2={x.i + pastIndex + 1}
+                        stroke="red"
+                        fill="red"
+                        strokeOpacity={0.3}
+                        fillOpacity={0.3} />
+                ) : null}
+            </LineChart>
+        </ResponsiveContainer>
+    );
 }
+
+//     return 
+//     ) : <></>; //pustoi element zdesj 4to bi bila otrisovka(ne obi4nii metod)
+// }
 
 export default AreaHigh;

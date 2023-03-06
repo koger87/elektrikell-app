@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 import ErrorModal from '../ErrorModal';
-import { useState } from 'react';
+
 
 function DateForm({ show, setShow, setSearchDate }) {
     const [errorMessage, setErrorMessage] = useState(null)
@@ -13,38 +13,67 @@ function DateForm({ show, setShow, setSearchDate }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const start = event.target.start.value;
-        const end = event.target.end.value
-        //const currentDate = moment()
+        let start = event.target.start.value;
+        let end = event.target.end.value
 
+        const currentDate = moment();
 
-
-        //moment.isSameOrAfter/Before
-        if(!start || !end) {
-            setErrorMessage('alg kup peab olema maaratud')
+        if (!start || !end) {
+            setErrorMessage('Alg ja Lõpp kuupäev peab olema määratud');
+            return;
+        }
+        if (currentDate.isBefore(start)) {
+            setErrorMessage('Alg kuupäev peab olema minevikus');
+            return;
+        }
+        if (currentDate.isAfter(end)) {
+            setErrorMessage('Lõpp kuupäev peab olema tulevikus')
             return;
         }
 
-        if (moment(start).isAfter(moment())) {
-            setErrorMessage("Vale algus kuupäev")
-        }
-        else if (moment(end).isBefore(moment())) {
-            setErrorMessage("Vale lõpp kuupäev")
-        } else {
-// start = moment(start)
-// end = moment(end)
+        start = moment(start);
+        end = moment(end);
 
-//if(start.diff(end, 'days') < 1 {
+        if (start.diff(end, 'days') >= 1) {
+            setErrorMessage('Alg ja Lõpp kuupäeva vahe peab olema rohkem kui 1 päev');
+            return;
+        }
+
+        setSearchDate({
+            start: start.format(),//prowloe - eto start 
+            end: end.format(),
+            pastHours: currentDate.diff(start, 'hours'),
+        });
+    };
+
+
+    //moment.isSameOrAfter/Before
+    // if(!start || !end) {
+    //     setErrorMessage('alg kup peab olema maaratud')
+    //     return;
+    // }
+
+    // if (moment(start).isAfter(moment())) {
+    //     setErrorMessage("Vale algus kuupäev")
+    // }
+    // else if (moment(end).isBefore(moment())) {
+    //     setErrorMessage("Vale lõpp kuupäev")
+    // } else {
+    // start = moment(start)
+    // end = moment(end)
+
+    //if(start.diff(end, 'days') < 1 {
     // setErrorMessage('alg ja lopp kuupaeva vahe peab rohkem kui 1 paev')
     // return
-// })
-            setSearchDate({
-                start: moment(start).format(),//prowloe - eto start 
-                end: moment(end).format(),
-                pastHours: moment().diff(moment(start), 'hours'),
-            });
-        }
-    }
+    // })
+
+    //         setSearchDate({
+    //             start: moment(start).format(),//prowloe - eto start 
+    //             end: moment(end).format(),
+    //             pastHours: moment().diff(moment(start), 'hours'),
+    //         });
+    //     }
+    // }
 
     return (
         <>
@@ -69,12 +98,12 @@ function DateForm({ show, setShow, setSearchDate }) {
                             Vali
                         </Button>
                     </Form>
-                    <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} />
-                    {/* kak v priceHeader errormodal */}
                 </Offcanvas.Body>
             </Offcanvas>
+            <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} />
+            {/* kak v priceHeader errormodal */}
         </>
     );
 }
 
-export default DateForm
+export default DateForm;

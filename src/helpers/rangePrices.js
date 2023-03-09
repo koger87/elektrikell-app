@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from 'moment';
 
 export const rangePricesGenerator = (data, hourRange = 1) => {
 
@@ -7,6 +7,7 @@ export const rangePricesGenerator = (data, hourRange = 1) => {
     const futureData = data.filter((el) => el.timestamp > timestampNow);
 
     const hourRangeLocal = hourRange + 1;
+
     const rangePrices = [];
 
     futureData.forEach((v, i, arr) => {

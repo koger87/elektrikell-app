@@ -1,19 +1,21 @@
 import Container from 'react-bootstrap/Container';
 import Durations from './Durations';
 import Countdown from 'react-countdown';
+import { useSelector } from 'react-redux';
 
+function FooterLowPrice() {
 
-function FooterLowPrice(props) {
+    const lowPriceTimestamp = useSelector((state) => state.lowPriceTimestamp);
+
     return (
         <Container className="text-center">
             <div>Tahan tarbida</div>
             <div>
-                <Durations {...props} />
+                <Durations />
             </div>
             <div>Parim aeg</div>
             <div>
-                {props.lowPriceTimestamp && <Countdown date={props.lowPriceTimestamp * 1000} />}
-                {/* tolko kogda komp.pojavitsa, tolko togda otrazatj ego */}
+                {lowPriceTimestamp && <Countdown date={lowPriceTimestamp * 1000} />}
             </div>
             <div>Siin on</div>
         </Container>

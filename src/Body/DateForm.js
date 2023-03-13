@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
-import ErrorModal from '../ErrorModal';
+// import ErrorModal from '../ErrorModal';
+import { setErrorMessage } from '../services/stateService';
+import { useDispatch } from 'react-redux';
 
 
 function DateForm({ show, setShow, setSearchDate }) {
-    const [errorMessage, setErrorMessage] = useState(null);
+    // const [errorMessage, setErrorMessage] = useState(null);
+    const dispatch = useDispatch();
 
     const handleClose = () => setShow(false);
     const handleSubmit = (event) => {
@@ -19,15 +22,15 @@ function DateForm({ show, setShow, setSearchDate }) {
         const currentDate = moment();
 
         if (!start || !end) {
-            setErrorMessage('Alg ja Lõpp kuupäev peab olema määratud');
+            dispatch(setErrorMessage('Alg ja Lõpp kuupäev peab olema määratud'));
             return;
         }
         if (currentDate.isBefore(start)) {
-            setErrorMessage('Alg kuupäev peab olema minevikus');
+            dispatch(setErrorMessage('Alg kuupäev peab olema minevikus'));
             return;
         }
         if (currentDate.isAfter(end)) {
-            setErrorMessage('Lõpp kuupäev peab olema tulevikus')
+            dispatch(setErrorMessage('Lõpp kuupäev peab olema tulevikus'));
             return;
         }
 
@@ -35,7 +38,7 @@ function DateForm({ show, setShow, setSearchDate }) {
         end = moment(end);
 
         if (start.diff(end, 'days') >= 1) {
-            setErrorMessage('Alg ja Lõpp kuupäeva vahe peab olema rohkem kui 1 päev');
+            dispatch(setErrorMessage('Alg ja Lõpp kuupäeva vahe peab olema rohkem kui 1 päev'));
             return;
         }
 
@@ -71,7 +74,7 @@ function DateForm({ show, setShow, setSearchDate }) {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} />
+            {/* <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} /> */}
         </>
     );
 }

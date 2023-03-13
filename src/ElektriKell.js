@@ -9,6 +9,7 @@ import NavBar from './Header/NavBar';
 import Body from './Body/Body';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
+//import { useDispatch, useSelector } from 'react-redux';
 
 function ElektriKell() {
   const params = useParams();

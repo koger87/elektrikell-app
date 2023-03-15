@@ -5,15 +5,14 @@ import Container from 'react-bootstrap/Container';
 import SelectPriceType from './SelectPriceType';
 import { getCurrentPrice } from '../services/apiService';
 import { useDispatch } from 'react-redux';
-// import ErrorModal from '../ErrorModal';
- import { setErrorMessage } from '../services/stateService';
+import { setErrorMessage } from '../services/stateService';
 
 
 function PriceHeader(props) {
 
   const [currentPrice, setCurrentPrice] = useState(0);
-  // const [errorMessage, setErrorMessage] = useState(null);
-const dispatch = useDispatch();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getCurrentPrice()
@@ -23,11 +22,9 @@ const dispatch = useDispatch();
         }
 
         const kwPrice = +(data[0].price / 10 * 1.2).toFixed(2);
-
         setCurrentPrice(kwPrice)
       })
       .catch((error) => dispatch(setErrorMessage(error.toString())));
-
   }, [dispatch]);
 
   return (
@@ -44,7 +41,6 @@ const dispatch = useDispatch();
           <Col>{currentPrice}</Col>
         </Row>
       </Container>
-      {/* <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} /> */}
     </>
   );
 }

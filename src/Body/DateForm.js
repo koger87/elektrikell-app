@@ -3,16 +3,16 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
-// import ErrorModal from '../ErrorModal';
 import { setErrorMessage } from '../services/stateService';
 import { useDispatch } from 'react-redux';
 
 
 function DateForm({ show, setShow, setSearchDate }) {
-    // const [errorMessage, setErrorMessage] = useState(null);
+
     const dispatch = useDispatch();
 
     const handleClose = () => setShow(false);
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -74,7 +74,6 @@ function DateForm({ show, setShow, setSearchDate }) {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            {/* <ErrorModal errorMessage={errorMessage} handleClose={() => setErrorMessage(null)} /> */}
         </>
     );
 }

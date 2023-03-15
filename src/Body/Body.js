@@ -8,10 +8,9 @@ import {
     ReferenceLine,
 } from 'recharts';
 import { getPriceData } from '../services/apiService';
-// import ErrorModal from '../ErrorModal';
 import moment from 'moment';
 import AreaLow from './AreaLow';
-import AreaHign from './AreaHigh';
+import AreaHigh from './AreaHigh';
 import Button from 'react-bootstrap/Button';
 import DateForm from './DateForm';
 import { useDispatch } from 'react-redux';
@@ -23,16 +22,17 @@ const start = moment().subtract(pastHours, 'hours').format();
 const end = moment().add(30, 'hours').format();
 
 function Body({ activePrice }) {
+
     const [data, setData] = useState(null);
-    // const [errorMessage, setErrorMessage] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [searchDate, setSearchDate] = useState({
         start, end, pastHours
     });
 
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     useEffect(() => {
+
         getPriceData(searchDate)
             .then(({ success, data, message }) => {
 
@@ -68,9 +68,9 @@ const dispatch = useDispatch();
         <>
             {activePrice === "high"
                 ?
-                <AreaHign data={data}>
+                <AreaHigh data={data}>
                     {chartsChildren}
-                </AreaHign>
+                </AreaHigh>
                 :
                 <AreaLow {...{ data, searchDate }} >
                     {chartsChildren}
@@ -84,10 +84,6 @@ const dispatch = useDispatch();
                 show={showForm}
                 setShow={setShowForm}
                 setSearchDate={setSearchDate} />
-
-            {/* <ErrorModal
-                errorMessage={errorMessage}
-                handleClose={() => setErrorMessage(null)} /> */}
         </>
     );
 }

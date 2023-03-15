@@ -5,11 +5,10 @@ import PriceHeader from './Header/PriceHeader';
 import FooterLowPrice from './Footer/FooterLowPrice';
 import FooterHighPrice from './Footer/FooterHighPrice';
 import NavBar from './Header/NavBar';
-// import ErrorModal from './ErrorModal';
+import ErrorModal from './ErrorModal';
 import Body from './Body/Body';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
-//import { useDispatch, useSelector } from 'react-redux';
 
 function ElektriKell() {
   const params = useParams();
@@ -33,6 +32,7 @@ function ElektriKell() {
         <FooterLowPrice />
         : <FooterHighPrice />}
       <Loading />
+      <ErrorModal />
     </>
   );
 }

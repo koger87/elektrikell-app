@@ -1,18 +1,18 @@
-import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
+import { createAction, createReducer, configureStore } from '@reduxjs/toolkit';
 
 const initalState = {
-    hourRange: 1,
+    durationRange: 1,
     lowPriceTimestamp: null,
     errorMessage: null,
 };
 
-export const setHourRange = createAction("setHourRange");
+export const setDurationRange = createAction("setDurationRange");
 export const setLowPriceTimestamp = createAction("setLowPriceTimestamp");
 export const setErrorMessage = createAction("setErrorMessage");
 
 const reducer = createReducer(initalState, {
-    [setHourRange]: (state, action) => {
-        state.hourRange = action.payload;
+    [setDurationRange]: (state, action) => {
+        state.durationRange = action.payload;
     },
     [setLowPriceTimestamp]: (state, action) => {
         state.lowPriceTimestamp = action.payload;

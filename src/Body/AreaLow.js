@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react";
-import { ReferenceArea, ResponsiveContainer, LineChart } from "recharts";
-import { rangePricesGenerator } from "../helpers/rangePrices";
+import { useState, useEffect } from 'react';
+import { ReferenceArea, ResponsiveContainer, LineChart } from 'recharts';
+import { useParams } from 'react-router-dom';
+import { rangePricesGenerator } from '../helpers/rangePrices';
+import { setLowPriceTimestamp } from '../services/stateService';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLowPriceTimestamp } from "../services/stateService";
-import { useParams } from "react-router-dom";
+
 
 function AreaLow({ data, searchDate, children }) {
+
     const { durationParam } = useParams()
 
     const [x, setX] = useState(0);
 
-    const hourRange = useSelector((state) => state.hourRange);
+    const durationRange = useSelector((state) => state.durationRange);
 
     const dispatch = useDispatch();
 
-    const selectedTime = durationParam ? +durationParam : hourRange;
+    const selectedTime = durationParam ? +durationParam : durationRange;
 
     useEffect(() => {
         if (data) {

@@ -7,15 +7,14 @@ import {
     Line,
     ReferenceLine,
 } from 'recharts';
-import { getPriceData } from '../services/apiService';
 import moment from 'moment';
+import Button from 'react-bootstrap/Button';
 import AreaLow from './AreaLow';
 import AreaHigh from './AreaHigh';
-import Button from 'react-bootstrap/Button';
 import DateForm from './DateForm';
-import { useDispatch } from 'react-redux';
+import { getPriceData } from '../services/apiService';
 import { setErrorMessage } from '../services/stateService';
-
+import { useDispatch } from 'react-redux';
 
 const pastHours = 10;
 const start = moment().subtract(pastHours, 'hours').format();

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { ReferenceArea, ResponsiveContainer, LineChart } from "recharts";
-import { rangePricesGenerator } from "../helpers/rangePrices";
+import { useState, useEffect } from 'react';
+import { ReferenceArea, ResponsiveContainer, LineChart } from 'recharts';
+import { rangePricesGenerator } from '../helpers/rangePrices';
 
 function AreaHigh({ data, children }) {
+
     const [xHigh, setXHigh] = useState(null);
-    // const [pastIndex, setPastIndex] = useState(0)
 
     useEffect(() => {
 
@@ -20,7 +20,7 @@ function AreaHigh({ data, children }) {
             });
             let average = sum / half.length;
             setXHigh(half.filter(v => v.sum > average));
-            // setPastIndex(data.length - rangePrices.length + 1)
+
         }
     }, [data]);
 
@@ -39,8 +39,8 @@ function AreaHigh({ data, children }) {
                         stroke="red"
                         fill="red"
                         strokeOpacity={0.3}
-                        fillOpacity={0.3} 
-                        />
+                        fillOpacity={0.3}
+                    />
                 ) : null}
             </LineChart>
         </ResponsiveContainer>

@@ -4,9 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import SelectPriceType from './SelectPriceType';
 import { getCurrentPrice } from '../services/apiService';
-import { useDispatch } from 'react-redux';
 import { setErrorMessage } from '../services/stateService';
-
+import { useDispatch } from 'react-redux';
 
 function PriceHeader(props) {
 
@@ -34,7 +33,7 @@ function PriceHeader(props) {
           <Col>Elektri hind hetkel on</Col>
         </Row>
         <Row className="mb-2">
-          <Col>kõrge</Col>
+          <Col>Kõrge/Madal</Col>
           <Col>
             <SelectPriceType {...props} />
           </Col>

@@ -3,10 +3,12 @@
 body {
     background-color: $gray-100;
 }
+
 // elektrikell color -rgb(245, 245, 252);
 .container-wraper {
     background-color: white;
 }
+
 .chart {
     width: 100%;
     height: 450px;
@@ -16,11 +18,8 @@ body {
 .navbar-brand {
     color: $primary;
 }
+
 .loader {
     border-top: 16px solid blue;
     border-bottom: 16px solid blue;
-  }
-   
-// .background_loading {
-
-//   }
+}

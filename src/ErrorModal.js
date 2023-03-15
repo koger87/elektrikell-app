@@ -1,7 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { useSelector, useDispatch } from 'react-redux';
 import { setErrorMessage } from './services/stateService';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ErrorModal() {
 

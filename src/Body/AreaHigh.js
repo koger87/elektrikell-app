@@ -4,6 +4,16 @@ import { rangePricesGenerator } from '../helpers/rangePrices';
 
 function AreaHigh({ data, children }) {
 
+    // UseState - eto React hook, kototrii pozvoljaet rabotatj, s sostojaniem komponenta.
+    // Sostojanie, po suti, eto peremennaja , kotorija rezit v sebja ljuboi tip dannix, kotorii, kasaetsa tolko etogo koponenta.
+    // useState, prinemaet kak argument izna4alnoe sostojanie,
+    // Toestj, pri pervoi otrisvoki komponenta, nazan4itsa peremennaja, s etim izna4alnim  zna4eniem.
+    // UseState pri incilizacii vozvrawaet massiv iz 2 x elementov.
+    // [0] = izna4alnoe sostojanie,
+    // (a s indeksom) [1] = funkcija kotoraja menjaet zna4enie sostojanija. V na4alo nazvanija obi4no stavim - 'set'
+    // Pri inicializacii izmenenija zapuskaetsa novaja otrisovka komponenta
+    // Vse hook (huki) Reacta nazivajutsa so slova 'use', i vse oni vozdeistvujut na otrisovku komponenta.
+
     const [xHigh, setXHigh] = useState(null);
 
     useEffect(() => {

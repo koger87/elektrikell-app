@@ -12,8 +12,8 @@ It refleсts and monitors electricity prices in Estonia.
 ![Estonia map.elering](https://elering.ee/themes/elering/public/img/front-map/map-elekter.svg)
 
 As a guest, on this aplication, you can - 
- * Choose time and hour interval to see elektricity prices.
- * To see best / cheaper time in the future, to use elektricity.
+ * Choose time and hour interval to see eleсtricity prices.
+ * To see best / cheaper time in the future, to use eleсtricity.
  * By cliking button "meist", you can visit another page, and there is more information, about the projeckt creators.
 
 

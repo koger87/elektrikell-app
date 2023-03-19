@@ -1,10 +1,36 @@
-# Getting Started with Create React App
+# Elektrikell app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Elektrikell app, was created with React and Bootsrtap help .\
+[Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## About
+
+This app was made as a  graduation project from Frontend courses.
+It refleсts and monitors electricity prices in Estonia.  
+
+![Estonia map.elering](https://elering.ee/themes/elering/public/img/front-map/map-elekter.svg)
+
+As a guest, on this aplication, you can - 
+ * Choose time and hour interval to see elektricity prices.
+ * To see best / cheaper time in the future, to use elektricity.
+ * By cliking button "meist", you can visit another page, and there is more information, about the projeckt creators.
+
+
+## Available Scripts and Operation / Process
+
+In the `project directory`, you can  find:
+  * JavaScript
+  * React 
+  * React -Bootstrap 
+  * Redux
+  * React router
+  * Sass
+  * Html
+
+  `Process` - \
+  Information about electricity prices and time, we take from [Elering.ee](http://elering.ee) Api . To build charts with data, we use - [Recharts](https://recharts.org/en-US/). Working with receiving data, are helping us [Moment library ](https://momentjs.com/). For less rerenders, we use Redux.
+
 
 ### `npm start`
 

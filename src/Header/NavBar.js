@@ -8,19 +8,21 @@ function NavBar() {
   return (
     <Navbar bg="light" expand="lg" className="mb-2">
       <Container>
-        <Navbar.Brand href="#home"><img
-          alt=""
-          src="https://www.elektrikell.ee/static/media/logo.eb02b150.svg"
-          width="150"
-          height="150"
-          className="d-inline-block align-top"
-        />{' '}
-        </Navbar.Brand>
+        <Navbar.Brand href="/elektrikell-app">ElektriKell</Navbar.Brand>
+
+        {/* // href=#home"><img */}
+        {/* //   alt=""
+        //   src="https://www.elektrikell.ee/static/media/logo.eb02b150.svg"
+        //   width="150"
+        //   height="150"
+        //   className="d-inline-block align-top"
+        // />{' '} */}
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/about" className="nav-link">Meist</Link>
-            <Link to="/high" className="nav-link">Tipptund</Link>
+            <Link to="/elektrikell-app/about" className="nav-link">Meist</Link>
+            <Link to="/elektrikell-app/high" className="nav-link">Tipptund</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

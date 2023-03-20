@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/elektrikell-app/static/css/main.691c4ba2.css",
+    "main.js": "/elektrikell-app/static/js/main.90972403.js",
+    "index.html": "/elektrikell-app/index.html",
+    "main.691c4ba2.css.map": "/elektrikell-app/static/css/main.691c4ba2.css.map",
+    "main.90972403.js.map": "/elektrikell-app/static/js/main.90972403.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.691c4ba2.css",
+    "static/js/main.90972403.js"
+  ]
+}
